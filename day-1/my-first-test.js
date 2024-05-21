@@ -20,6 +20,8 @@
 
 function print(value) {
   // YOUR CODE BELOW HERE //
+  //console logs the value of the value input
+  console.log(value);
   
 
   
