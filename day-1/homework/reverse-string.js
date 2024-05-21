@@ -21,14 +21,24 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
+    //reverseString function takes a string as a parameter
+
+  //we'll create an empty array to reverse into
+  var strArray = []
+  //now we'll iterate through the string with a loop
+  for (var index = 0; index < input.length; index++){
+      //we'll unshift the string index values into our array
+      console.log(input[index]);
+      strArray.unshift(input[index]);
+  }
+  //return the reversed array joined into a string
+  console.log(strArray.join(""));
+  return strArray.join("");
     
     // YOUR CODE GOES ABOVE HERE //
 }
 
-
+// console.log("reverseString output: " + reverseString("hello"));
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
