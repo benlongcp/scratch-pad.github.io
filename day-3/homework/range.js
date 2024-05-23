@@ -23,10 +23,26 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    //create an empty array to push values to
+    var rangeArr = [];
     
+    //create an if statement to check if we're doing an ascending or descending array
+    if (start - end < 0){
+        //if we know we're ascending, our count will start at start, end when count gets to end, and we'll increment upward
+        for (var i = start; i <= end; i++){
+            //and push the current value to the range array
+            rangeArr.push(i);
+        } 
+    } else {
+        //or else we'll increment downward
+        for (var i = start; i >= end; i--){
+            rangeArr.push(i);
+        }
+    }
+
     
-    
-    
+    //return rangeArr
+    return rangeArr;
     // YOUR CODE GOES ABOVE HERE //
 }
 

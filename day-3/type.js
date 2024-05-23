@@ -16,8 +16,10 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+    //returns a boolean value using the Array.isArray method
+    return Array.isArray(value);
+
+
     
     
     // YOUR CODE ABOVE HERE //
@@ -34,13 +36,23 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+    //if value is not an array and not null, and and not a date object, but is still and object
+    if (Array.isArray(value) === false && value !== null && Object.prototype.toString.call(value) !== "[object Date]" && typeof value === 'object'){
+        // console.log('is an object')
+        //return true
+        return true;
+    } else {
+        //otherwise return false
+        return false;
+    }
 
-    
     
     // YOUR CODE ABOVE HERE //
 }
-
+// var today = new Date;
+// // var nul = null;
+// // console.log(isObject(nul));
+// console.log(isObject(today));
 
 
 /** 
@@ -51,7 +63,15 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    //if value is  not null, and and not a date object, but is still an object
+    if (value !== null && Object.prototype.toString.call(value) !== "[object Date]" && typeof value === 'object'){
+        // console.log('is an object')
+        //return true
+        return true;
+    } else {
+        //otherwise return false
+        return false;
+    }
     
     
     
@@ -77,9 +97,24 @@ function isCollection(value) {
  *    typeOf("javascript") -> "string"
  *    typeOf([1,2,3]) -> "array"
  */ 
+
+
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    //if it's null, return null
+    if (value === null){
+        return 'null';
+    //if it's a date, return date
+    } else if (value instanceof Date){
+        return 'date';
+    //if it's an array, return array
+    } else if (Array.isArray(value) === true){
+        return 'array'
+    //if it's anything else, return the typeof property
+    } else {
+        console.log(typeof value);
+        return typeof value;
+    }
     
     
     
