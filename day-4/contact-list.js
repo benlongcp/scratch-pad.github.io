@@ -34,21 +34,113 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
+
+
+
+
+
+
+
+
 function makeContact(id, nameFirst, nameLast) {
     
+    var contact = {
+        'id': id,
+        'nameFirst': nameFirst,
+        'nameLast': nameLast
+    }
+    return contact;
 } 
+
+// var benLong = makeContact(1, "Ben", "Long");
+// console.log(benLong);
 
 
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+
+
+        addContact: function(contact){
+            //pushes the contact to the contacts array
+            contacts.push(contact)
+            return contacts
+        },
+
+
+        findContact: function(fullName){
+            //splits fullName into first and last names
+            var nomFirst = fullName.split(" ")[0];
+            console.log("first name: " + nomFirst)
+
+            var nomLast = fullName.split(" ")[1];
+            console.log("last name: " + nomLast)
+
+            //iterate through contacts array
+            console.log("contact list length: " + contacts.length)
+            for (var i = 0; i < contacts.length; i++){
+
+                //check if each object in the array contains the nameFirst and nameLast
+                console.log("index #: " + i);
+                if (contacts[i]['nameFirst'] === nomFirst && contacts[i]['nameLast'] === nomLast){
+                    
+                    console.log(contacts[i]);
+                    return contacts[i];
+
+                } 
+                    return undefined;           
+            }
+        },
+
+
+        //creates a funciton that takes an object parameter
+        removeContact: function(contact){
+            //loops through the contacts array
+            for (var i = 0; i < contacts.length; i++){
+                //if the contact id matches the contact id at the current index
+                if (contacts[i]['id'] === contact['id']){
+                    //return the contacts array spliced at the given index, removing one item
+                    return contacts.splice(i, 1);
+                }                  
+
+            }
+
+            return contacts
+        },
+
+
+        /*
+        I - no inputs
+        O - outputs a string
+        C
+        E        
+        */
+
+        //creates a function that takes no parameters
+        printAllContactNames: function(){
+            
+            //make empty string to return later
+            var conString = "";
+
+            //loop through the contacts array
+            for (var i = 0; i < contacts.length; i++){
+                console.log("index: ", i)
+                //concatenated strings of nameFirst and nameLast
+                conString = conString + contacts[i]['nameFirst'] + " " + contacts[i]['nameLast'] + "\n";
+                console.log("current conString: ", conString);
+            }
+        conString = conString.slice(0, conString.length -1);    
+        console.log("conString Final: ", conString);
+        //return concatenated formatted string
+        return conString;
         }
     }
 }
