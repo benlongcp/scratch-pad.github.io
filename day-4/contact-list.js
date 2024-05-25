@@ -137,6 +137,7 @@ function makeContactList() {
                 conString = conString + contacts[i]['nameFirst'] + " " + contacts[i]['nameLast'] + "\n";
                 console.log("current conString: ", conString);
             }
+        //chop off that last line break
         conString = conString.slice(0, conString.length -1);    
         console.log("conString Final: ", conString);
         //return concatenated formatted string
